@@ -8,13 +8,18 @@ body {
 }
 
 .docs-sidebar .nav > li > a {
-    color: #666;
+    color: #CCC;
+    background: #FFF;
     display: block;
     padding: 4px 20px;
-    font-size: 13px;
+    font-size: 15px;
     font-weight: 500;
 }
 
 .docs-sidebar .nav > li > a.active {
     color: #000;
+    font-weight: 600;
+    background: #FFF;
+    border-bottom-style: solid;
+    border-bottom-color: #2DB3D1;
 }
