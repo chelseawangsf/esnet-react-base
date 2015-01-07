@@ -2,7 +2,7 @@
   "name": "esnet-react-base",
   "version": "0.0.1",
   "private": "true",
-  "main": "esnet-react-base.js",
+  "main": "entry.js",
   "author": "ESnet Tools Team <tools@es.net>",
   "repository": {
     "type": "git",
