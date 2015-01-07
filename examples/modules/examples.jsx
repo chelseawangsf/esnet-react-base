@@ -4,11 +4,13 @@ var React = require('react');
 
 var Base = require("../../entry");
 var Spinner = Base.Spinner;
-var Link = Base.Link;
+var SectionLink = Base.SectionLink;
 var Breadcrumb = Base.Breadcrumb;
 var Clock = Base.Clock;
 var ViewRow = Base.ViewRow;
 var LatLongLink = Base.LatLongLink;
+var LatLong = Base.LatLong;
+var Directions = Base.Directions;
 
 var Examples = React.createClass({
 
@@ -21,10 +23,13 @@ var Examples = React.createClass({
   		breadcrumbs.push({url: "#labs/anl", name: "Berkeley Labs"});
 
   		//Lat long
-  		var lat = 31.2243489;
-  		var long = 121.4767528;
+  		var lat = 38.897474;
+  		var long = -77.0368319;
+   		var latLong = (
+  			<LatLong latitude={lat} longitude={long}/>
+  		);
   		var latLongLink = (
-  			<LatLongLink title="Shanghai" latitude={lat} longitude={long} zoom={10}/>
+  			<LatLongLink title="The White House" latitude={lat} longitude={long} zoom={18}/>
   		);
 
   		//Clock
@@ -32,6 +37,16 @@ var Examples = React.createClass({
 		var clock = (
 			<Clock timezone={tz}/>
 		);
+
+		//Directions
+		var address = {
+			"address_1": "1600 Pennsylvania Avenue NW",
+			"address_2": "",
+			"city": "Washington",
+			"state": "DC",
+			"country": "USA",
+			"zip_code": "20500"
+		}
 
 	    return (
 	    	<div>
@@ -43,7 +58,7 @@ var Examples = React.createClass({
 
 	          	<div className="row">
 	              	<div className="col-md-12">
-	              	<h4>Spinner control</h4>
+	              	<h4>Spinner</h4>
 	              	A spinner control used to show that a piece of the page is loading.
 	              	This inlines the spinner itself in the bundle.
 
@@ -57,12 +72,12 @@ var Examples = React.createClass({
 	          	<div className="row">
 	              	<div className="col-md-12">
 	              	<hr />
-	              	<h4>Link control</h4>
+	              	<h4>SectionLink</h4>
 	              	Standardized section link within ESDB.
 
 	              	<p />
 
-	              	<Link link="intro" title="Back" icon="link"/>
+	              	<SectionLink link="intro" title="Back" icon="link"/>
 
 	              	</div>
 	          	</div>
@@ -118,15 +133,27 @@ var Examples = React.createClass({
 	          	<div className="row">
 	              	<div className="col-md-12">
 	              	<hr />
-	              	<h4>Mapping</h4>
-	              	Links a latitude and longitude to a google page at that location. Optionally
-	              	you can specify a title and a zoom level.
-
+	              	<h4>Location</h4>
+	              	Components to link to a location on a Google Map given the latitude and longitude. Also, a
+	              	component to display a lat/long pair in a consistent way.
 	              	<p/>
 
 	              	<table>
-	              		<ViewRow name="Location" content={latLongLink}/>
+	              		<ViewRow name="Location" content={latLongLink} />
+	              		<ViewRow name="Coordinates" content={latLong} />
 	              	</table>
+	              	</div>
+	          	</div>
+
+	          	<div className="row">
+	              	<div className="col-md-12">
+	              	<hr />
+	              	<h4>Directions to an Address</h4>
+					Displays directions to an address.
+
+					<p />
+
+	              	<Directions address={address} title="Get directions to the White House!"/>
 	              	</div>
 	          	</div>
 

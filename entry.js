@@ -12,9 +12,11 @@
 
 module.exports = {
     Spinner: require('./lib/components/spinner.jsx'),
-    Link: require('./lib/components/link.jsx'),
+    SectionLink: require('./lib/components/sectionlink.jsx'),
     Breadcrumb: require('./lib/components/breadcrumb.jsx'),
     Clock: require('./lib/components/clock.jsx'),
     ViewRow: require('./lib/components/viewrow.jsx'),
+    LatLong: require('./lib/components/latlong.jsx'),
     LatLongLink: require('./lib/components/latlonglink.jsx'),
+    Directions: require('./lib/components/directions.jsx')
 }

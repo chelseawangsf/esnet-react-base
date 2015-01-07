@@ -2,7 +2,7 @@
 
 "use strict";
 
-require("./link.css");
+require("./sectionlink.css");
 
 var React = require("react");
 
