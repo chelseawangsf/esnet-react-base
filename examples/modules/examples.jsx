@@ -77,7 +77,8 @@ var Examples = React.createClass({
 
 	              	<p />
 
-	              	<SectionLink link="intro" title="Back" icon="link"/>
+	              	<SectionLink link="intro" title="Home" icon="link"/>
+	              	<SectionLink link="intro" title="Info" icon="link"/>
 
 	              	</div>
 	          	</div>

@@ -15,17 +15,17 @@ var React = require("react");
  *     * title - the text used as the link
  *     * icon - the bootstrap icon name (e.g. 'briefcase')
  */
-var LinkView = React.createClass({
+var SectionLink = React.createClass({
     render: function() {
         var url = "#" + this.props.link;
-        var classString = "glyphicon glyphicon-" + this.props.icon + " esdb-component-icon";
+        var classString = "glyphicon glyphicon-" + this.props.icon + " sectionlink-icon";
         return (
-            <div className="esnet-component-link">
+            <div className="sectionlink-container">
                 <a href={url}>
                     <span>
                         <i className={classString}></i>
                     </span>
-                    <span>
+                    <span className="sectionlink-title">
                         {this.props.title}
                     </span>
                 </a>
@@ -34,4 +34,4 @@ var LinkView = React.createClass({
     }
 });
 
-module.exports = LinkView;
+module.exports = SectionLink;

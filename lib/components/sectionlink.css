@@ -1,5 +1,5 @@
 
-.esnet-component-link {
+.sectionlink-container {
     border-style: solid;
     border-width: 1px;
     border-radius: 4px;
@@ -8,9 +8,10 @@
     border-color: #E2E2E2;
     background: #F8F8F8;
     font-size: 26px;
+    margin: 10px;
 }
 
-.esdb-component-icon {
+.sectionlink-icon {
     cursor: pointer;
     font-size: 22px;
     padding-right: 10px;
