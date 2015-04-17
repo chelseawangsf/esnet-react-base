@@ -120,6 +120,7 @@ var Examples = React.createClass({
 	              	<hr />
 	              	<h4>Timezone aware clock</h4>
 					Displays a simple clock with the current time within a given timezone.
+					The clock updates so that it's always correct.
 
 					<p />
 
