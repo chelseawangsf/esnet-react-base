@@ -11,6 +11,7 @@ var ViewRow = Base.ViewRow;
 var LatLongLink = Base.LatLongLink;
 var LatLong = Base.LatLong;
 var Directions = Base.Directions;
+var AttributedEventSummary = Base.AttributedEventSummary;
 
 var Examples = React.createClass({
 
@@ -47,6 +48,19 @@ var Examples = React.createClass({
 			"country": "USA",
 			"zip_code": "20500"
 		}
+
+		var d = new Date();
+		var attributedEventSummaryNow = (
+			<AttributedEventSummary user="bob"
+			                        when={d} />
+		);
+
+		var today = d.getFullYear() + "-" +  (d.getMonth()+1) + "-" + d.getDate();
+		var attributedEventSummaryToday = (
+			<AttributedEventSummary user="bob"
+			                        when={today}
+			                        preamble="Today created" />
+		);
 
 	    return (
 	    	<div>
@@ -120,6 +134,7 @@ var Examples = React.createClass({
 	              	<hr />
 	              	<h4>Timezone aware clock</h4>
 					Displays a simple clock with the current time within a given timezone.
+					The clock updates so that it's always correct.
 
 					<p />
 
@@ -158,6 +173,22 @@ var Examples = React.createClass({
 	              	</div>
 	          	</div>
 
+	          	<div className="row">
+	              	<div className="col-md-12">
+	              	<hr />
+	              	<h4>Attributed Event Summary</h4>
+					Displays when an event happened with both relative and absolute times.
+					The relative time updates so that it's always correct.
+
+					<p />
+
+	              	<table>
+	              		<ViewRow name="Last page load" content={attributedEventSummaryNow}/>
+	              		<ViewRow name="Beginning of the day" content={attributedEventSummaryToday}/>
+	              	</table>
+
+	              	</div>
+	          	</div>
 		    </div>
 	    );
   	}
