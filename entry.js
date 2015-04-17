@@ -18,5 +18,6 @@ module.exports = {
     ViewRow: require('./lib/components/viewrow.jsx'),
     LatLong: require('./lib/components/latlong.jsx'),
     LatLongLink: require('./lib/components/latlonglink.jsx'),
-    Directions: require('./lib/components/directions.jsx')
+    Directions: require('./lib/components/directions.jsx'),
+    AttributedEventSummary: require('./lib/components/attributedeventsummary.jsx')
 }
