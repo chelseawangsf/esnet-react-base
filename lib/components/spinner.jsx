@@ -1,14 +1,15 @@
-"use strict";
+import React from "react";
+import spinner from "./assets/loader.gif";
 
-var React = require("react");
-var loader = document.createElement("img");
-loader.src = require("./assets/loader.gif");
+const loader = document.createElement("img");
+loader.src = spinner;
 
 /**
- * Form control to edit a text field.
- * Set the initial value with 'initialValue' and set a callback for value changed with 'onChange'.
+ * Displays a simple spinner used throughout the Portal and ESDB. Simply include:
+ *
+ *   <Spinner />
  */
-var Spinner = React.createClass({
+export default React.createClass({
     render: function() {
         return (
             <div>
@@ -17,5 +18,3 @@ var Spinner = React.createClass({
         );
     }
 });
-
-module.exports = Spinner;

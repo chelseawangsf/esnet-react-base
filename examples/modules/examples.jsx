@@ -1,46 +1,42 @@
-/** @jsx React.DOM */
+import React from "react";
+import {Spinner,
+	    SectionLink,
+	    Breadcrumb,
+	    Clock,
+	    ViewRow,
+	    LatLongLink,
+	    LatLong,
+	    Directions,
+        AttributedEventSummary} from "../../entry";
 
-var React = require("react/addons");
-
-var Base = require("../../entry");
-var Spinner = Base.Spinner;
-var SectionLink = Base.SectionLink;
-var Breadcrumb = Base.Breadcrumb;
-var Clock = Base.Clock;
-var ViewRow = Base.ViewRow;
-var LatLongLink = Base.LatLongLink;
-var LatLong = Base.LatLong;
-var Directions = Base.Directions;
-var AttributedEventSummary = Base.AttributedEventSummary;
-
-var Examples = React.createClass({
+export default React.createClass({
 
   	render: function() {
 
   		//bread crumbs
-  		var breadcrumbs = [];
+  		let breadcrumbs = [];
   		breadcrumbs.push({url: "#", name: "Home"});
   		breadcrumbs.push({url: "#labs", name: "Labs"});
   		breadcrumbs.push({url: "#labs/anl", name: "Berkeley Labs"});
 
   		//Lat long
-  		var lat = 38.897474;
-  		var long = -77.0368319;
-   		var latLong = (
+  		const lat = 38.897474;
+  		const long = -77.0368319;
+   		const latLong = (
   			<LatLong latitude={lat} longitude={long}/>
   		);
-  		var latLongLink = (
+  		const latLongLink = (
   			<LatLongLink title="The White House" latitude={lat} longitude={long} zoom={18}/>
   		);
 
   		//Clock
-  		var tz = "america/los_angeles";
-		var clock = (
+  		const tz = "america/los_angeles";
+		const clock = (
 			<Clock timezone={tz}/>
 		);
 
 		//Directions
-		var address = {
+		const address = {
 			"address_1": "1600 Pennsylvania Avenue NW",
 			"address_2": "",
 			"city": "Washington",
@@ -49,14 +45,14 @@ var Examples = React.createClass({
 			"zip_code": "20500"
 		}
 
-		var d = new Date();
-		var attributedEventSummaryNow = (
+		const d = new Date();
+		const attributedEventSummaryNow = (
 			<AttributedEventSummary user="bob"
 			                        when={d} />
 		);
 
-		var today = d.getFullYear() + "-" +  (d.getMonth()+1) + "-" + d.getDate();
-		var attributedEventSummaryToday = (
+		const today = d.getFullYear() + "-" +  (d.getMonth()+1) + "-" + d.getDate();
+		const attributedEventSummaryToday = (
 			<AttributedEventSummary user="bob"
 			                        when={today}
 			                        preamble="Today created" />
@@ -193,5 +189,3 @@ var Examples = React.createClass({
 	    );
   	}
 });
-
-module.exports = Examples;

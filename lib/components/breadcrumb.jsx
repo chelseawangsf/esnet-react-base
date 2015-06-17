@@ -1,7 +1,5 @@
-"use strict";
-
-var React = require("react");
-var _     = require("underscore");
+import React from "react";
+import _ from "underscore";
 
 /**
  * Wraps the bootstrap breadcrumb widget, used at the top of the portal pages.
@@ -9,9 +7,10 @@ var _     = require("underscore");
  * Props:
  *     * breadcrumbs - an array of 'breadcrumb' objects, each of which has a name and a URL.
  */
-var Breadcrumb = React.createClass({
+export default React.createClass({
+
     render: function() {
-        var breadcrumbs = _.map(this.props.breadcrumbs, function(breadcrumb, index) {
+        const breadcrumbs = _.map(this.props.breadcrumbs, (breadcrumb, index) => {
             return (
                 <li key={index}><a href={breadcrumb.url}>{breadcrumb.name}</a></li>
             );
@@ -22,6 +21,5 @@ var Breadcrumb = React.createClass({
             </ul>
         );
     }
+    
 });
-
-module.exports = Breadcrumb;

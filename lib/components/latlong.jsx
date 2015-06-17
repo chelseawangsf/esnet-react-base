@@ -1,12 +1,14 @@
-"use strict";
-
-var React = require("react");
+import React from "react";
 
 /**
  * Simple display of Latitude and Longitude coordination, for the purpose
  * of being consistent more than anything else.
+ *
+ * Props:
+ *     * latitude - the latitude
+ *     * longitude - the longitude
  */
-var LatLong = React.createClass({
+export default React.createClass({
     render: function() {
         if (this.props.latitude && this.props.longitude) {
           return (
@@ -17,5 +19,3 @@ var LatLong = React.createClass({
         }
     }
 });
-
-module.exports = LatLong;

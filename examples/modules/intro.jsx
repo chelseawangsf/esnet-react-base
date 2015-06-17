@@ -1,8 +1,6 @@
-/** @jsx React.DOM */
+import React from "react";
 
-var React = require("react/addons");
-
-var Intro = React.createClass({
+export default React.createClass({
 
     render: function() {
         return (
@@ -24,5 +22,3 @@ var Intro = React.createClass({
         );
     }
 });
-
-module.exports = Intro;

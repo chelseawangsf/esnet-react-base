@@ -1,8 +1,5 @@
-"use strict";
-
-var React = require("react");
-
-require("./viewrow.css");
+import React from "react";
+import "./viewrow.css";
 
 /**
  * When we display name/content pairs within the Portal/ESDB UI, we use a standard table
@@ -10,7 +7,7 @@ require("./viewrow.css");
  * name and a content as it's primary props. In addition you can also pass in a class
  * for the row and an optional width for the name cell (it defaults to 200px).
  */
-var ViewRow = React.createClass({
+export default React.createClass({
 
     getDefaultProps: function() {
         return {
@@ -30,5 +27,3 @@ var ViewRow = React.createClass({
         );
     }
 });
-
-module.exports = ViewRow;

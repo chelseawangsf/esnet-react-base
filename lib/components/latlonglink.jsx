@@ -1,11 +1,15 @@
-"use strict";
-
-var React = require("react");
+import React from "react";
 
 /**
  * Links a latitude and longitude to a google page at that location
+ *
+ * Props:
+ *     * latitude - the latitude
+ *     * longitude - the longitude
+ *     * title - the text link (default is 'Map')
+ *     * zoom - the Google Maps zoom level
  */
-var LatLongLink = React.createClass({
+export default React.createClass({
 
     getDefaultProps: function() {
         return {
@@ -17,13 +21,11 @@ var LatLongLink = React.createClass({
     },
 
     render: function() {
-        var url = "https://www.google.com/maps/@";
-        url += this.props.latitude + "," + this.props.longitude;
-        url += "," + this.props.zoom + "z";
+        const {latitude, longitude, zoom} = this.props.latitude;
+        const url = `https://www.google.com/maps/@${latitude},${longitude},${zoom}z`;
         return (
             <a href={url} target="_blank">{this.props.title}</a>
         );
     }
 });
 
-module.exports = LatLongLink;

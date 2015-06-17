@@ -1,11 +1,15 @@
-"use strict";
+import React from "react";
+import _ from "underscore";
 
-require("./sectionlink.css");
-
-var React = require("react");
-var _ = require("underscore");
-
-var Directions = React.createClass({
+/**
+ * Generates a Google maps directions link given an address object containing:
+ * "address_1", "address_2", "city", "country", "state", "zip_code"
+ *
+ * Props:
+ *     * address - the address object
+ *     * title - the link text, defaults to "Get directions to this location"
+ */
+export default React.createClass({
 
     getDefaultProps: function() {
         return {
@@ -14,11 +18,10 @@ var Directions = React.createClass({
     },
 
     buildAddressString: function() {
-        var address = this.props.address;
-        var parts, attr;
-        parts = []
-        _.each(["address_1", "address_2", "city", "country", "state", "zip_code"], function(attr, i) {
-            if(_.isString(address[attr])) {
+        const address = this.props.address;
+        let parts = []
+        _.each(["address_1", "address_2", "city", "country", "state", "zip_code"], (attr, i) => {
+            if (_.isString(address[attr])) {
                 parts.push(address[attr].replace(" ", "+"));
             }
         });
@@ -26,11 +29,9 @@ var Directions = React.createClass({
     },
 
     render: function() {
-        var url = "http://maps.google.com/maps?daddr=" + this.buildAddressString();
+        const url = `http://maps.google.com/maps?daddr=${this.buildAddressString()}`;
         return (
             <a target={"_blank"} href={url}>{this.props.title}</a>
         );
     },
 });
-
-module.exports = Directions;

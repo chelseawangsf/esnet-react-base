@@ -1,18 +1,13 @@
-/** @jsx React.DOM */
+import React from "react";
+import Router from "react-router";
 
-var React = require("react/addons");
-var Router = require("react-router");
+import App from "./app.jsx";
+import Intro from "./intro.jsx";
+import Examples from "./examples.jsx";
 
-var {Route,
-     DefaultRoute,
-     RouteHandler,
-     Link} = Router;
+const {Route, DefaultRoute, RouteHandler, Link} = Router;
 
-var App = require('./app.jsx');
-var Intro = require('./intro.jsx');
-var Examples = require('./examples.jsx');
-
-var routes = (
+const routes = (
     <Route path="/" handler={App}>
         <DefaultRoute name="intro" handler={Intro} />
         <Route name="examples" handler={Examples} />

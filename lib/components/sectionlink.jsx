@@ -1,11 +1,10 @@
-"use strict";
+import React from "react";
+import _ from "underscore";
 
-require("./sectionlink.css");
-
-var React = require("react");
+import "./sectionlink.css";
 
 /**
- * A link within the current page. This will as an icon (one of bootstraps icons)
+ * A link within the current page. This will be an icon (one of bootstraps icons)
  * as well as the link.
  *
  * Props:
@@ -13,15 +12,15 @@ var React = require("react");
  *     * title - the text used as the link
  *     * icon - the bootstrap icon name (e.g. 'briefcase')
  */
-var SectionLink = React.createClass({
+export default React.createClass({
     render: function() {
-        var url = "#" + this.props.link;
-        var classString = "glyphicon glyphicon-" + this.props.icon + " sectionlink-icon";
+        const url = `#${this.props.link}`;
+        const classes = `glyphicon glyphicon-${this.props.icon} sectionlink-icon`;
         return (
             <div className="sectionlink-container">
                 <a href={url}>
                     <span>
-                        <i className={classString}></i>
+                        <i className={classes}></i>
                     </span>
                     <span className="sectionlink-title">
                         {this.props.title}
@@ -31,5 +30,3 @@ var SectionLink = React.createClass({
         );
     }
 });
-
-module.exports = SectionLink;

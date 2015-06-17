@@ -1,11 +1,21 @@
-"use strict";
+import React from "react";
+import _ from "underscore";
+import moment from "moment-timezone";
 
-var React = require("react");
-var _ = require("underscore");
-var moment = require('moment-timezone');
-
-
-var AttributedEventSummary = React.createClass({
+/**
+ * This component unifies the presentation of attributed
+ * events, i.e. Edited by Bob one minutes ago (time).
+ *
+ * TODO: pretty this up.
+ *
+ * Props:
+ *     * user - the user that is attributed with the event
+ *     * when - when the event happened (a Date object)
+ *     * preamble - what the user did (e.g. "Edited" or "Created", default is "Last modified")
+ *     * refreshInterval - how often to update the time display in ms (default is 60000)
+ *     * timeFormat - format to display the absolute time (default is YYYY-MM-DD hh:mm A)
+ */
+export default React.createClass({
 
     displayName: "AttributedEventSummary",
 
@@ -18,13 +28,10 @@ var AttributedEventSummary = React.createClass({
     },
 
     componentDidMount: function() {
-        var self = this;
-        this.setState(
-            { 
-                "timer": setInterval(function() { self.forceUpdate(); }, 
-                                     this.props.refreshInterval)
-             }
-        );
+        this.setState({
+            "timer": setInterval(() => { this.forceUpdate(); },
+                                 this.props.refreshInterval)
+        });
     },
 
     componentWillUnmount: function() {
@@ -32,16 +39,14 @@ var AttributedEventSummary = React.createClass({
     },
 
     render: function() {
-        var user = _.isNull(this.props.user) ? "Unknown" : this.props.user;
-        var preamble = this.props.preamble;
-        var t = moment(this.props.when);
-        var absoluteTime = t.format(this.props.timeFormat);
-        var relativeTime = t.fromNow();
+        const user = _.isNull(this.props.user) ? "Unknown" : this.props.user;
+        const preamble = this.props.preamble;
+        const t = moment(this.props.when);
+        const absoluteTime = t.format(this.props.timeFormat);
+        const relativeTime = t.fromNow();
 
         return (
             <div>{preamble} by {user} {relativeTime} ({absoluteTime})</div>
         );
     }
 });
-
-module.exports = AttributedEventSummary;

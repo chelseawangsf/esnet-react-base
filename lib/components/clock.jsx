@@ -1,12 +1,13 @@
-"use strict";
-
-var React = require("react");
-var moment = require('moment-timezone');
+import React from "react";
+import moment from "moment-timezone";
 
 /**
- * Displays a simple clock with the current time within a given timezone
+ * Displays a simple clock with the current time within a given timezone.
+ *
+ * Props:
+ *     * timezone - the timezone to display the current time in
  */
-var Clock = React.createClass({
+export default React.createClass({
 
     render: function() {
         if (this.props.timezone) {
@@ -31,9 +32,8 @@ var Clock = React.createClass({
     },
 
     componentDidMount: function() {
-        var self = this;
-        this.state.timer = setInterval(function() {
-            self.setState({date: self.getTime()});
+        this.state.timer = setInterval(() => {
+            this.setState({date: this.getTime()});
         }, 1000);
     },
 
@@ -41,5 +41,3 @@ var Clock = React.createClass({
         clearInterval(this.state.timer);
     }
 });
-
-module.exports = Clock;
