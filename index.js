@@ -7,14 +7,14 @@
 // );
 
 module.exports = {
-    Spinner: require("./build/npm/lib/spinner.jsx"),
-    SectionLink: require("./build/npm/lib/sectionlink.jsx"),
-    Breadcrumb: require("./build/npm/lib/breadcrumb.jsx"),
-    Clock: require("./build/npm/lib/clock.jsx"),
-    ViewRow: require("./build/npm/lib/viewrow.jsx"),
-    LatLong: require("./build/npm/lib/latlong.jsx"),
-    LatLongLink: require("./build/npm/lib/latlonglink.jsx"),
-    Directions: require("./build/npm/lib/directions.jsx"),
-    AttributedEventSummary: require("./build/npm/lib/attributedeventsummary.jsx")
+    Spinner: require("./build/npm/lib/spinner"),
+    SectionLink: require("./build/npm/lib/sectionlink"),
+    Breadcrumb: require("./build/npm/lib/breadcrumb"),
+    Clock: require("./build/npm/lib/clock"),
+    ViewRow: require("./build/npm/lib/viewrow"),
+    LatLong: require("./build/npm/lib/latlong"),
+    LatLongLink: require("./build/npm/lib/latlonglink"),
+    Directions: require("./build/npm/lib/directions"),
+    AttributedEventSummary: require("./build/npm/lib/attributedeventsummary")
 }
 
