@@ -1,13 +1,14 @@
 import React from "react";
-import {Spinner,
-	    SectionLink,
-	    Breadcrumb,
-	    Clock,
-	    ViewRow,
-	    LatLongLink,
-	    LatLong,
-	    Directions,
-        AttributedEventSummary} from "../../entry";
+
+import Spinner from "../../lib/components/spinner";
+import SectionLink from "../../lib/components/sectionlink";
+import Breadcrumb from "../../lib/components/breadcrumb";
+import Clock from "../../lib/components/clock";
+import ViewRow from "../../lib/components/viewrow";
+import LatLongLink from "../../lib/components/latlonglink";
+import LatLong from "../../lib/components/latlong";
+import Directions from "../../lib/components/directions";
+import AttributedEventSummary from "../../lib/components/attributedeventsummary";
 
 export default React.createClass({
 

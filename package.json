@@ -2,7 +2,7 @@
   "name": "esnet-react-base",
   "version": "0.3.0",
   "private": "true",
-  "main": "entry.js",
+  "main": "index.js",
   "author": "ESnet Tools Team <tools@es.net>",
   "repository": {
     "type": "git",
@@ -10,6 +10,7 @@
   },
   "scripts": {
     "start": "webpack-dev-server",
+    "build-npm": "rm -rf build/npm && babel --optional es7.objectRestSpread -d build/npm/lib ./lib/components && cp README.md build/npm && cp ./lib/components/*.css build/npm/lib && find -X build/npm/lib -type d -name __tests__ | xargs rm -rf && node -p 'p=require(\"./package\");p.main=\"lib\";p.scripts=p.devDependencies=undefined;JSON.stringify(p,null,2)' > build/npm/package.json",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
