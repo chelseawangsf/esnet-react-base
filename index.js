@@ -17,4 +17,3 @@ module.exports = {
     Directions: require("./build/npm/lib/directions"),
     AttributedEventSummary: require("./build/npm/lib/attributedeventsummary")
 }
-
