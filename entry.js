@@ -17,5 +17,6 @@ module.exports = {
     LatLong: require('./lib/components/latlong.jsx'),
     LatLongLink: require('./lib/components/latlonglink.jsx'),
     Directions: require('./lib/components/directions.jsx'),
-    AttributedEventSummary: require('./lib/components/attributedeventsummary.jsx')
+    AttributedEventSummary: require('./lib/components/attributedeventsummary.jsx'),
+    NavItems: require('./lib/components/navitems.jsx')
 }

@@ -12,6 +12,7 @@ var LatLongLink = Base.LatLongLink;
 var LatLong = Base.LatLong;
 var Directions = Base.Directions;
 var AttributedEventSummary = Base.AttributedEventSummary;
+var NavItems = Base.NavItems;
 
 var Examples = React.createClass({
 
@@ -61,7 +62,11 @@ var Examples = React.createClass({
 			                        when={today}
 			                        preamble="Today created" />
 		);
-
+		//NavItems
+		var subSections = {summary: {label: "Summary", url: ("#location/view/" + "280")},
+                        circuits: {label: "Circuits", url: ("#location/view/" + "280" + "/circuits")},
+                        diagrams: {label: "Diagrams", url: ("#location/view/" + "280" + "/diagrams")}
+                    	};
 	    return (
 	    	<div>
 	          	<div className="row">
@@ -189,6 +194,23 @@ var Examples = React.createClass({
 
 	              	</div>
 	          	</div>
+
+                <div className="row">
+                    <div className="col-md-12">
+                    <hr />
+                    <h4> NavItem Examples</h4>
+                    Displays a horizontal list of Navigation Items that link to different sub pages in the 
+                    Portal/ESDB UI.  The current pagesection that is selected is highlighted.
+
+                    <p />
+
+                    <NavItems active={subSections['circuits']['label']} navItems={subSections}/>
+                    Selection: {subSections['circuits']['label']}
+                    <br />
+                    
+                    Url: {subSections['circuits']['url']}
+                    </div>
+                </div>
 		    </div>
 	    );
   	}
