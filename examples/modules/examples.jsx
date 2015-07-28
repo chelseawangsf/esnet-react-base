@@ -13,6 +13,7 @@ var LatLong = Base.LatLong;
 var Directions = Base.Directions;
 var AttributedEventSummary = Base.AttributedEventSummary;
 var NavItems = Base.NavItems;
+var NavItemTabs = Base.NavItemTabs;
 
 var Examples = React.createClass({
 
@@ -205,12 +206,34 @@ var Examples = React.createClass({
                     <p />
 
                     <NavItems active={subSections['circuits']['label']} navItems={subSections}/>
+                    
+                    <br />
                     Selection: {subSections['circuits']['label']}
                     <br />
-                    
+
                     Url: {subSections['circuits']['url']}
                     </div>
                 </div>
+		    	
+		    	<div className="row">
+                    <div className="col-md-12">
+                    <hr />
+                    <h4> NavItemTabs Examples</h4>
+                    Displays a horizontal list of Navigation Items in a tab format that link to different sub pages in the 
+                    Portal/ESDB UI.  The current pagesection that is selected is outlined.  Supports the "pullRight" prop.
+
+                    <p />
+
+                    <NavItemTabs active={subSections['circuits']['label']} navItemTabs={subSections}/>
+
+                    <br />
+                    Selection: {subSections['circuits']['label']}
+                    <br />
+                    Url: {subSections['circuits']['url']}
+                    </div>
+                </div>
+
+
 		    </div>
 	    );
   	}
