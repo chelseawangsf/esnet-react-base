@@ -29,12 +29,13 @@ export default React.createClass({
     },
 
     render() {
-        var navElements = _.map(this.props.navItems, (item) => {
+        var navElements = _.map(this.props.navItems, (item, key) => {
             var label = item["label"];
             if (_.has(item, "url")) {
                 var url = item["url"];
                 return (
                     <NavItem
+                        key={key}
                         eventKey={label}
                         href={url}>{label}
                     </NavItem>
@@ -43,6 +44,7 @@ export default React.createClass({
             } else {
                 return (
                     <NavItem
+                        key={key}
                         eventKey={label}
                         onSelect={this.handleSelect}>
                         {label}

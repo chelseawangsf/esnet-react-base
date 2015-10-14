@@ -22,7 +22,7 @@
   },
   "dependencies": {
     "babel-runtime": "~5.8.3",
-    "moment-timezone": "^0.2.5",
+    "moment-timezone": "^0.4.1",
     "react-bootstrap": "^0.16.1",
     "underscore": "^1.7.0"
   },

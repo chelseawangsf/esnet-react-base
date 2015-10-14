@@ -9,17 +9,17 @@
  */
 
 import React from "react";
-import Spinner from "../../lib/spinner";
-import SectionLink from "../../lib/sectionlink";
-import Breadcrumb from "../../lib/breadcrumb";
-import Clock from "../../lib/clock";
-import ViewRow from "../../lib/viewrow";
-import LatLongLink from "../../lib/latlonglink";
-import LatLong from "../../lib/latlong";
-import Directions from "../../lib/directions";
-import AttributedEventSummary from "../../lib/attributedeventsummary";
-import NavItems from "../../lib/navitems";
-import NavItemTabs from "../../lib/navitemtabs";
+import Spinner from "../../src/spinner";
+import SectionLink from "../../src/sectionlink";
+import Breadcrumb from "../../src/breadcrumb";
+import Clock from "../../src/clock";
+import ViewRow from "../../src/viewrow";
+import LatLongLink from "../../src/latlonglink";
+import LatLong from "../../src/latlong";
+import Directions from "../../src/directions";
+import AttributedEventSummary from "../../src/attributedeventsummary";
+import NavItems from "../../src/navitems";
+import NavItemTabs from "../../src/navitemtabs";
 
 export default React.createClass({
 

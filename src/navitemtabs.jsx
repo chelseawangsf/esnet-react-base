@@ -29,12 +29,13 @@ export default React.createClass({
     },
 
     render() {
-        var navElements = _.map(this.props.navItemTabs, (tab) => {
+        var navElements = _.map(this.props.navItemTabs, (tab, key) => {
             var label = tab["label"];
             if (_.has(tab, "url")) {
                 var url = tab["url"];
                 return (
                     <NavItem
+                        key={key}
                         eventKey={label}
                         href={url}>
                         {label}
@@ -44,6 +45,7 @@ export default React.createClass({
             } else {
                 return (
                     <NavItem
+                        key={key}
                         eventKey={label}
                         onSelect={this.handleSelect}>
                         {label}
@@ -55,9 +57,9 @@ export default React.createClass({
             return (
                 <div>
                     <Nav
-                        bsStyle='tabs'
+                        bsStyle="tabs"
                         activeKey={this.props.active}
-                        pullRight='true'>
+                        pullRight="true">
                         {navElements}
                     </Nav>
                 </div>
