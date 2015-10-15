@@ -16,8 +16,6 @@ import moment from "moment-timezone";
  * This component unifies the presentation of attributed
  * events, i.e. Edited by Bob one minutes ago (time).
  *
- * TODO: pretty this up.
- *
  * Props:
  *     * user - the user that is attributed with the event
  *     * when - when the event happened (a Date object)
@@ -34,7 +32,7 @@ export default React.createClass({
 
     getDefaultProps() {
         return {
-            timeFormat: "YYYY-MM-DD hh:mm A",
+            timeFormat: "MMM DD YYYY hh:mm A",
             preamble: "Last modified",
             refreshInterval: 60000,
         };
@@ -53,6 +51,20 @@ export default React.createClass({
     },
 
     render() {
+        const preableStyle = {
+            fontSize: 11,
+            textTransform: "uppercase"
+        };
+
+        const relativeStyle = {
+            fontWeight: 200
+        };
+
+        const absoluteStyle = {
+            fontWeight: 200,
+            fontSize: 9
+        };
+
         const user = _.isNull(this.props.user) ? "Unknown" : this.props.user;
         const preamble = this.props.preamble;
         const t = moment(this.props.when);
@@ -60,7 +72,21 @@ export default React.createClass({
         const relativeTime = t.fromNow();
 
         return (
-            <div>{preamble} by {user} {relativeTime} ({absoluteTime})</div>
+            <table>
+                <tbody>
+                    <tr><td>
+                        <span style={preableStyle}>{preamble}</span>
+                    </td></tr>
+                    <tr><td>
+                        <span style={relativeStyle}>
+                            {relativeTime} by {user}
+                        </span>
+                    </td></tr>
+                    <tr><td>
+                        <span style={absoluteStyle}>{absoluteTime}</span>
+                    </td></tr>
+                </tbody>
+            </table>
         );
     }
 });
