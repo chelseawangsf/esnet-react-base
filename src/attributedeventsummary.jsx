@@ -62,7 +62,7 @@ export default React.createClass({
 
         const absoluteStyle = {
             fontWeight: 200,
-            fontSize: 9
+            fontSize: 10
         };
 
         const user = _.isNull(this.props.user) ? "Unknown" : this.props.user;
