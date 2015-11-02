@@ -1,4 +1,4 @@
-This repository contains a set of general purpose React components which are used within the Portal and the internal ESDB project. Largely this library exists to enable reuse of standard UI pieces across ESnet Tools Group projects. As a result these may change without notice or provide little value outside of ESnet.
+**Warning**: This repository contains a set of general purpose React components which are used within the Portal and the internal ESDB project. Largely this library exists to enable reuse of standard UI pieces across ESnet Tools Group projects. As a result these may change without notice or provide little value outside of ESnet.
 
 Current components are:
 
@@ -13,7 +13,7 @@ Current components are:
 Getting started
 ---------------
 
-The charts library is intended to be used with npm and the built into your project with something like webpack.
+The base library is intended to be used with npm and the built into your project with something like webpack.
 
     npm install @esnet/react-base --save
 

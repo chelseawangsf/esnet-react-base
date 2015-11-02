@@ -29,7 +29,7 @@ export default React.createClass({
         let breadcrumbs = [];
         breadcrumbs.push({url: "#", name: "Home"});
         breadcrumbs.push({url: "#labs", name: "Labs"});
-        breadcrumbs.push({url: "#labs/anl", name: "Berkeley Labs"});
+        breadcrumbs.push({url: "#labs/lbl", name: "Berkeley Lab"});
 
         // Lat long
         const lat = 38.897474;
@@ -76,6 +76,12 @@ export default React.createClass({
                 preamble="Today created" />
         );
 
+        const directionsLink = (
+            <Directions
+                address={address}
+                title="Get directions to the White House!"/>
+        );
+
         // NavItems
         var subSections = {
             summary: {
@@ -94,23 +100,12 @@ export default React.createClass({
 
         return (
             <div>
-                <div className="row">
-                    <div className="col-md-12">
-                        <h3>Examples</h3>
-                    </div>
-                </div>
 
                 <div className="row">
                     <div className="col-md-12">
-                    <h4>Spinner</h4>
-                    A spinner control used to show that a piece of the
-                    page is loading. This inlines the spinner itself in
-                    the bundle.
-
-                    <p />
-
-                    <Spinner />
-
+                        <h3>Navigation examples</h3>
+                        Components the allow navigation around the
+                        Portal and ESDB.
                     </div>
                 </div>
 
@@ -146,11 +141,64 @@ export default React.createClass({
                 <div className="row">
                     <div className="col-md-12">
                     <hr />
+                    <h4> NavItem Examples</h4>
+                    Displays a horizontal list of Navigation Items that link to
+                    different sub pages in the Portal/ESDB UI.  The current
+                    page section that is selected is highlighted.
+
+                    <p />
+
+                    <NavItems
+                        active={subSections["circuits"]["label"]}
+                        navItems={subSections}/>
+
+                    <br />
+                    Selection: {subSections["circuits"]["label"]}
+                    <br />
+
+                    Url: {subSections["circuits"]["url"]}
+                    </div>
+                </div>
+
+                <div className="row">
+                    <div className="col-md-12">
+                    <hr />
+                    <h4> NavItemTabs Examples</h4>
+                    Displays a horizontal list of Navigation Items in a tab
+                    format that link to different sub pages in the
+                    Portal/ESDB UI.  The current pagesection that is selected
+                    is outlined.  Supports the "pullRight" prop.
+
+                    <p />
+
+                    <NavItemTabs
+                        active={subSections["circuits"]["label"]}
+                        navItemTabs={subSections}/>
+
+                    <br />
+                    Selection: {subSections["circuits"]["label"]}
+                    <br />
+                    Url: {subSections["circuits"]["url"]}
+                    </div>
+                </div>
+
+                <div className="row">
+                    <div className="col-md-12">
+                        <h3>Display examples</h3>
+                        Wrapper for specific data types, such as lat/long
+                        coordinates to help us display these in a consistent
+                        way across the Portal and ESDB.
+                    </div>
+                </div>
+
+                <div className="row">
+                    <div className="col-md-12">
+                    <hr />
                     <h4>View rows</h4>
                     When we display name/content pairs within the Portal/ESDB
                     UI, we use a standard table row to do this. So this is a
                     simple helper to clean up that code. It takes a name and a
-                    content as it's primary props. In addition you can also pass
+                    content as its primary props. In addition you can also pass
                     in a class for the row and an optional width for the name
                     cell (it defaults to 200px).
 
@@ -205,9 +253,9 @@ export default React.createClass({
 
                     <p />
 
-                    <Directions
-                        address={address}
-                        title="Get directions to the White House!"/>
+                    <table>
+                        <ViewRow name="Directions" content={directionsLink} />
+                    </table>
                     </div>
                 </div>
 
@@ -235,45 +283,26 @@ export default React.createClass({
 
                 <div className="row">
                     <div className="col-md-12">
-                    <hr />
-                    <h4> NavItem Examples</h4>
-                    Displays a horizontal list of Navigation Items that link to
-                    different sub pages in the Portal/ESDB UI.  The current
-                    page section that is selected is highlighted.
-
-                    <p />
-
-                    <NavItems
-                        active={subSections["circuits"]["label"]}
-                        navItems={subSections}/>
-
-                    <br />
-                    Selection: {subSections["circuits"]["label"]}
-                    <br />
-
-                    Url: {subSections["circuits"]["url"]}
+                        <h3>Other</h3>
                     </div>
                 </div>
 
                 <div className="row">
                     <div className="col-md-12">
-                    <hr />
-                    <h4> NavItemTabs Examples</h4>
-                    Displays a horizontal list of Navigation Items in a tab
-                    format that link to different sub pages in the
-                    Portal/ESDB UI.  The current pagesection that is selected
-                    is outlined.  Supports the "pullRight" prop.
+                    <h4>Spinner</h4>
+                    A spinner control used to show that a piece of the
+                    page is loading. This inlines the spinner itself in
+                    the bundle.
 
                     <p />
 
-                    <NavItemTabs
-                        active={subSections["circuits"]["label"]}
-                        navItemTabs={subSections}/>
+                    <Spinner />
 
-                    <br />
-                    Selection: {subSections["circuits"]["label"]}
-                    <br />
-                    Url: {subSections["circuits"]["url"]}
+                    </div>
+                </div>
+
+                <div className="row">
+                    <div style={{height: 200}} className="col-md-12">
                     </div>
                 </div>
             </div>

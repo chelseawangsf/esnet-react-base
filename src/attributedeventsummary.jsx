@@ -51,7 +51,7 @@ export default React.createClass({
     },
 
     render() {
-        const preableStyle = {
+        const preambleStyle = {
             fontSize: 11,
             textTransform: "uppercase"
         };
@@ -75,7 +75,7 @@ export default React.createClass({
             <table>
                 <tbody>
                     <tr><td>
-                        <span style={preableStyle}>{preamble}</span>
+                        <span style={preambleStyle}>{preamble}</span>
                     </td></tr>
                     <tr><td>
                         <span style={relativeStyle}>
