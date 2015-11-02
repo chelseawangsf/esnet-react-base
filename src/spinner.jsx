@@ -9,20 +9,22 @@
  */
 
 import React from "react";
-import Markdown from "react-markdown-el";
+import spinner from "./loader.gif";
 
-const text = require("raw!../../README.md");
+const loader = document.createElement("img");
+loader.src = spinner;
 
+/**
+ * Displays a simple spinner used throughout the Portal
+ * and ESDB. Simply include:
+ *
+ *   <Spinner />
+ */
 export default React.createClass({
-
     render() {
         return (
             <div>
-                <div className="row">
-                    <div className="col-md-12">
-                        <Markdown text={text}/>
-                    </div>
-                </div>
+                <img className="loader" src={loader.src} />
             </div>
         );
     }
