@@ -34,7 +34,7 @@ export default React.createClass({
         return {
             timeFormat: "MMM DD YYYY hh:mm A",
             preamble: "Last modified",
-            refreshInterval: 60000,
+            refreshInterval: 60000
         };
     },
 

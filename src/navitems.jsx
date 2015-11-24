@@ -29,10 +29,10 @@ export default React.createClass({
     },
 
     render() {
-        var navElements = _.map(this.props.navItems, (item, key) => {
-            var label = item["label"];
+        const navElements = _.map(this.props.navItems, (item, key) => {
+            const label = item["label"];
             if (_.has(item, "url")) {
-                var url = item["url"];
+                const url = item["url"];
                 return (
                     <NavItem
                         key={key}
@@ -55,10 +55,10 @@ export default React.createClass({
 
         return (
             <div>
-                <Nav bsStyle='pills' activeKey={this.props.active}>
+                <Nav bsStyle="pills" activeKey={this.props.active}>
                     {navElements}
                 </Nav>
             </div>
         );
-    },
+    }
 });

@@ -23,7 +23,7 @@ export default React.createClass({
 
     getDefaultProps() {
         return {
-            title: "Get directions to this location",
+            title: "Get directions to this location"
         };
     },
 
@@ -46,5 +46,5 @@ export default React.createClass({
         return (
             <a target={"_blank"} href={url}>{this.props.title}</a>
         );
-    },
+    }
 });

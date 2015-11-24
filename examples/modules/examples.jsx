@@ -62,19 +62,7 @@ export default React.createClass({
         };
 
         const d = new Date();
-        const attributedEventSummaryNow = (
-            <AttributedEventSummary
-                user="bob"
-                when={d} />
-        );
-
         const today = `${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()}`;
-        const attributedEventSummaryToday = (
-        <AttributedEventSummary
-                user="bob"
-                when={today}
-                preamble="Today created" />
-        );
 
         const directionsLink = (
             <Directions
@@ -197,16 +185,22 @@ export default React.createClass({
                     <h4>View rows</h4>
                     When we display name/content pairs within the Portal/ESDB
                     UI, we use a standard table row to do this. So this is a
-                    simple helper to clean up that code. It takes a name and a
-                    content as its primary props. In addition you can also pass
+                    simple helper to clean up that code. It can be used in two
+                    forms: Either it takes a name and a content props or you
+                    can specify a name and provide a child.
+
+                    In addition you can also pass
                     in a class for the row and an optional width for the name
                     cell (it defaults to 200px).
 
                     <p />
 
                     <table>
+                        <tbody>
                         <ViewRow name="Name" content="Bob"/>
                         <ViewRow name="Birthday" content="October 21, 1964"/>
+                        <ViewRow name="Loading"><Spinner /></ViewRow>
+                        </tbody>
                     </table>
                     </div>
                 </div>
@@ -222,8 +216,10 @@ export default React.createClass({
                     <p />
 
                     <table>
+                        <tbody>
                         <ViewRow name="Timezone" content="america/los_angeles"/>
                         <ViewRow name="Local time" content={clock}/>
+                        </tbody>
                     </table>
 
                     </div>
@@ -239,8 +235,10 @@ export default React.createClass({
                     <p/>
 
                     <table>
+                        <tbody>
                         <ViewRow name="Location" content={latLongLink} />
                         <ViewRow name="Coordinates" content={latLong} />
+                        </tbody>
                     </table>
                     </div>
                 </div>
@@ -254,7 +252,9 @@ export default React.createClass({
                     <p />
 
                     <table>
+                        <tbody>
                         <ViewRow name="Directions" content={directionsLink} />
+                        </tbody>
                     </table>
                     </div>
                 </div>
@@ -270,12 +270,20 @@ export default React.createClass({
                     <p />
 
                     <table>
-                        <ViewRow
-                            name="Last page load"
-                            content={attributedEventSummaryNow}/>
-                        <ViewRow
-                            name="Beginning of the day"
-                            content={attributedEventSummaryToday}/>
+                        <tbody>
+                        <ViewRow name="Last page load">
+                            <AttributedEventSummary
+                                user="bob"
+                                when={new Date()} />
+                        </ViewRow>
+
+                        <ViewRow name="Beginning of the day">
+                            <AttributedEventSummary
+                                user="bob"
+                                when={today}
+                                preamble="Today created" />
+                        </ViewRow>
+                        </tbody>
                     </table>
 
                     </div>

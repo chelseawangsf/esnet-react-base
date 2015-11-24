@@ -8,22 +8,21 @@
  *  LICENSE file in the root directory of this source tree.
  */
 
+/* eslint max-len:0 */
+
 import React from "react";
-import Router from "react-router";
+import { render } from "react-dom";
+import { Router, Route, IndexRoute } from "react-router";
 
 import App from "./app.jsx";
 import Intro from "./intro.jsx";
 import Examples from "./examples.jsx";
 
-const {Route, DefaultRoute, RouteHandler, Link} = Router;
-
-const routes = (
-    <Route path="/" handler={App}>
-        <DefaultRoute name="intro" handler={Intro} />
-        <Route name="examples" handler={Examples} />
-    </Route>
-);
-
-Router.run(routes, function (Handler) {
-    React.render(<Handler/>, document.getElementById("content"));
-});
+render((
+    <Router>
+        <Route path="/" component={App}>
+            <IndexRoute component={Intro}/>
+            <Route path="examples" component={Examples} />
+        </Route>
+    </Router>
+), document.getElementById("content"));

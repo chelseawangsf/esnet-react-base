@@ -29,10 +29,10 @@ export default React.createClass({
     },
 
     render() {
-        var navElements = _.map(this.props.navItemTabs, (tab, key) => {
-            var label = tab["label"];
+        const navElements = _.map(this.props.navItemTabs, (tab, key) => {
+            const label = tab["label"];
             if (_.has(tab, "url")) {
-                var url = tab["url"];
+                const url = tab["url"];
                 return (
                     <NavItem
                         key={key}
@@ -75,5 +75,5 @@ export default React.createClass({
                 </div>
             );
         }
-    },
+    }
 });
