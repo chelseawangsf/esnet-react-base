@@ -1,5 +1,5 @@
 {
-  "name": "@esnet/react-base",
+  "name": "esnet-react-base",
   "version": "0.4.0",
   "private": "true",
   "main": "index.js",
@@ -20,32 +20,46 @@
     "build-website": "webpack --config webpack.examples.config.js",
     "start-website": "webpack-dev-server  --config webpack.examples.config.js"
   },
+  "pre-commit": [
+    "lint",
+    "build"
+  ],
+  "gh-pages-deploy": {
+    "staticpath": "website",
+    "prep": [
+      "build-website"
+    ]
+  },
   "dependencies": {
     "babel-runtime": "~5.8.3",
     "moment-timezone": "^0.4.1",
-    "react-bootstrap": "^0.16.1",
+    "react-bootstrap": "^0.28.1",
     "underscore": "^1.7.0"
   },
   "peerDependencies": {
-    "react": "0.13.x"
+    "react": "^0.14.3"
   },
   "devDependencies": {
     "babel": "^5.8.3",
     "babel-core": "^5.1.13",
-    "babel-eslint": "4.0.5",
+    "babel-eslint": "^4.1.5",
     "babel-loader": "^5.0.0",
     "bundle-loader": "^0.5.0",
     "css-loader": "^0.9.0",
-    "eslint": "^0.24.0",
-    "eslint-plugin-react": "^3.3.1",
+    "eslint": "^1.10.0",
+    "eslint-plugin-react": "^3.9.0",
+    "eslint-plugin-babel": "^2.1.1",
+    "eslint-config-esnet": "^0.1.0",
     "file-loader": "^0.7.2",
     "json-loader": "^0.5.1",
     "raw-loader": "^0.5.1",
-    "react": "^0.13.x",
-    "react-markdown-el": "^1.0.2",
-    "react-router": "^0.13.x",
+    "react": "^0.14.3",
+    "react-dom": "^0.14.3",
+    "react-markdown": "^1.0.5",
+    "react-router": "^1.0.0",
     "style-loader": "^0.8.0",
     "url-loader": "^0.5.5",
-    "webpack-dev-server": "^1.6.5"
+    "webpack-dev-server": "^1.6.5",
+    "gh-pages-deploy": "^0.3.0"
   }
 }
