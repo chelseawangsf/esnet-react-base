@@ -16,13 +16,19 @@ import { Router, Route, IndexRoute } from "react-router";
 
 import App from "./app.jsx";
 import Intro from "./intro.jsx";
-import Examples from "./examples.jsx";
+import Navigation from "./navigation_examples.jsx";
+import Display from "./display_examples.jsx";
+import Time from "./time_examples.jsx";
+import Location from "./location_examples.jsx";
 
 render((
     <Router>
         <Route path="/" component={App}>
             <IndexRoute component={Intro}/>
-            <Route path="examples" component={Examples} />
+            <Route path="navigation" component={Navigation} />
+            <Route path="display" component={Display} />
+            <Route path="time" component={Time} />
+            <Route path="location" component={Location} />
         </Route>
     </Router>
 ), document.getElementById("content"));

@@ -15,11 +15,11 @@ Getting started
 
 The base library is intended to be used with npm and the built into your project with something like webpack.
 
-    npm install @esnet/react-base --save
+    npm install esnet-react-base --save
 
 Once installed, you can import the necessary components from the library:
 
-    import {Clock} from "@esnet/react-base";
+    import { Clock } from "esnet-react-base";
     ...
     render() {
         ...
@@ -28,7 +28,7 @@ Once installed, you can import the necessary components from the library:
         )
     }
 
-See the examples for more information about these props.
+See the examples for more information.
 
 Examples
 --------

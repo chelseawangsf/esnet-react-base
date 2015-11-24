@@ -29,7 +29,10 @@ export default React.createClass({
                     <div className="sidebar-heading">Components</div>
 
                     <ul className="nav nav-sidebar">
-                      <li><Link to="examples">Examples</Link></li>
+                      <li><Link to="navigation">Navigation</Link></li>
+                      <li><Link to="display">Display</Link></li>
+                      <li><Link to="time">Time</Link></li>
+                      <li><Link to="location">Location</Link></li>
                     </ul>
 
                     <div className="sidebar-heading">Links</div>
