@@ -21,6 +21,11 @@ import Display from "./display_examples.jsx";
 import Time from "./time_examples.jsx";
 import Location from "./location_examples.jsx";
 
+// Hash history with scroll behavior
+import createHistory from "history/lib/createHashHistory";
+import useScroll from "scroll-behavior/lib/useStandardScroll";
+const history = useScroll(createHistory)();
+
 render((
     <Router>
         <Route path="/" component={App}>
