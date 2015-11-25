@@ -1,13 +1,11 @@
 {
   "name": "esnet-react-base",
   "version": "0.5.0",
-  "private": "true",
+  "description": "Common widgets for ESnet tools",
   "main": "index.js",
   "author": "ESnet Tools Team <tools@es.net>",
-  "repository": {
-    "type": "git",
-    "url": "git://github.com:esnet/esnet-react-base.git"
-  },
+  "repository": "esnet/esnet-react-base",
+  "homepage": "https://software.es.net/esnet-react-base",
   "bugs": {
     "url": "https://github.com/esnet/esnet-react-base/issues"
   },
@@ -24,12 +22,6 @@
     "lint",
     "build"
   ],
-  "gh-pages-deploy": {
-    "staticpath": "website",
-    "prep": [
-      "build-website"
-    ]
-  },
   "dependencies": {
     "babel-runtime": "~5.8.3",
     "moment-timezone": "^0.4.1",
@@ -61,7 +53,6 @@
     "scroll-behavior": "^0.3.0",
     "style-loader": "^0.8.0",
     "url-loader": "^0.5.5",
-    "webpack-dev-server": "^1.6.5",
-    "gh-pages-deploy": "^0.3.0"
+    "webpack-dev-server": "^1.6.5"
   }
 }
