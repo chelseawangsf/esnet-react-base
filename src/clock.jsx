@@ -49,5 +49,5 @@ export default React.createClass({
                 <div>Unknown time</div>
             );
         }
-    },
+    }
 });

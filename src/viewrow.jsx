@@ -30,14 +30,29 @@ export default React.createClass({
     },
 
     render() {
-        return (
-            <tr className={this.props.rowClass}>
-                <td className="esnet-viewrow-label"
-                    width={this.props.valueWidth}>
-                    {this.props.name}
-                </td>
-                <td className="esnet-viewrow-content">{this.props.content}</td>
-            </tr>
-        );
+        if (this.props.content) {
+            return (
+                <tr className={this.props.rowClass}>
+                    <td className="esnet-viewrow-label"
+                        style={{verticalAlign: "top"}}
+                        width={this.props.valueWidth}>
+                        {this.props.name}
+                    </td>
+                    <td className="esnet-viewrow-content">{this.props.content}</td>
+                </tr>
+            );
+        } else {
+            const child = React.Children.only(this.props.children);
+            return (
+                <tr className={this.props.rowClass}>
+                    <td className="esnet-viewrow-label"
+                        style={{verticalAlign: "top"}}
+                        width={this.props.valueWidth}>
+                        {this.props.name}
+                    </td>
+                    <td className="esnet-viewrow-content">{child}</td>
+                </tr>
+            );
+        }
     }
 });
