@@ -9,6 +9,7 @@
  */
 
 import React from "react";
+import _ from "underscore";
 import "./viewrow.css";
 
 /**
@@ -23,14 +24,13 @@ export default React.createClass({
     getDefaultProps() {
         return {
             name: "",
-            content: "",
             rowClass: "",
             valueWidth: 200
         };
     },
 
     render() {
-        if (this.props.content) {
+        if (!_.isUndefined(this.props.content)) {
             return (
                 <tr className={this.props.rowClass}>
                     <td className="esnet-viewrow-label"
