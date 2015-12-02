@@ -37,7 +37,8 @@ export default React.createClass({
         return {
             title: "Confirm delete",
             warning: "Are you sure you want to delete this?",
-            text: "This action can not be undone."
+            text: "This action can not be undone.",
+            animate: false
         };
     },
 
@@ -72,7 +73,7 @@ export default React.createClass({
             <div>
                 <i className="glyphicon glyphicon-trash" style={style} onClick={this.open} />
                 <span>{this.state.msg}</span>
-                <Modal show={this.state.showModal} onHide={this.close}>
+                <Modal show={this.state.showModal} onHide={this.close} animation={false} container={this}>
                     <Modal.Header closeButton>
                         <Modal.Title>{this.props.title}</Modal.Title>
                     </Modal.Header>
