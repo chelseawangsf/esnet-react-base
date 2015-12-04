@@ -1,6 +1,6 @@
 {
   "name": "esnet-react-base",
-  "version": "0.5.2",
+  "version": "0.6.0",
   "description": "Common widgets for ESnet tools",
   "main": "index.js",
   "author": "ESnet Tools Team <tools@es.net>",
