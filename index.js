@@ -9,15 +9,17 @@
  */
 
 module.exports = {
-    Spinner: require('./lib/spinner.js'),
-    SectionLink: require('./lib/sectionlink.js'),
-    Breadcrumb: require('./lib/breadcrumb.js'),
-    Clock: require('./lib/clock.js'),
-    ViewRow: require('./lib/viewrow.js'),
-    LatLong: require('./lib/latlong.js'),
-    LatLongLink: require('./lib/latlonglink.js'),
-    Directions: require('./lib/directions.js'),
-    AttributedEventSummary: require('./lib/attributedeventsummary.js'),
-    NavItems: require('./lib/navitems.js'),
-    NavItemTabs: require('./lib/navitemtabs.js')
-}
+    Spinner: require("./lib/spinner.js"),
+    SectionLink: require("./lib/sectionlink.js"),
+    Breadcrumb: require("./lib/breadcrumb.js"),
+    Clock: require("./lib/clock.js"),
+    ViewRow: require("./lib/viewrow.js"),
+    LatLong: require("./lib/latlong.js"),
+    LatLongLink: require("./lib/latlonglink.js"),
+    Directions: require("./lib/directions.js"),
+    AttributedEventSummary: require("./lib/attributedeventsummary.js"),
+    NavItems: require("./lib/navitems.js"),
+    NavItemTabs: require("./lib/navitemtabs.js"),
+    DeleteAction: require("./lib/delete.js"),
+    Filter: require("./lib/filter.js")
+};

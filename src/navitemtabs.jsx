@@ -59,7 +59,7 @@ export default React.createClass({
                     <Nav
                         bsStyle="tabs"
                         activeKey={this.props.active}
-                        pullRight="true">
+                        pullRight={true}>
                         {navElements}
                     </Nav>
                 </div>

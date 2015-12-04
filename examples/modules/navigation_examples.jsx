@@ -75,7 +75,7 @@ export default React.createClass({
 
                     <p />
 
-                    <Breadcrumb breadcrumbs={breadcrumbs}/>
+                    <Breadcrumb breadcrumbs={breadcrumbs} />
 
                     </div>
                 </div>
@@ -92,7 +92,7 @@ export default React.createClass({
 
                     <NavItems
                         active={subSections["circuits"]["label"]}
-                        navItems={subSections}/>
+                        navItems={subSections} />
 
                     <br />
                     Selection: {subSections["circuits"]["label"]}
@@ -115,7 +115,8 @@ export default React.createClass({
 
                     <NavItemTabs
                         active={subSections["circuits"]["label"]}
-                        navItemTabs={subSections}/>
+                        navItemTabs={subSections}
+                        pullRight={false} />
 
                     <br />
                     Selection: {subSections["circuits"]["label"]}
