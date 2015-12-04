@@ -68,29 +68,33 @@
 
 	var _reactRouter = __webpack_require__(159);
 
-	var _appJsx = __webpack_require__(210);
+	var _app = __webpack_require__(210);
 
-	var _appJsx2 = _interopRequireDefault(_appJsx);
+	var _app2 = _interopRequireDefault(_app);
 
-	var _introJsx = __webpack_require__(212);
+	var _intro = __webpack_require__(212);
 
-	var _introJsx2 = _interopRequireDefault(_introJsx);
+	var _intro2 = _interopRequireDefault(_intro);
 
-	var _navigation_examplesJsx = __webpack_require__(236);
+	var _navigation_examples = __webpack_require__(236);
 
-	var _navigation_examplesJsx2 = _interopRequireDefault(_navigation_examplesJsx);
+	var _navigation_examples2 = _interopRequireDefault(_navigation_examples);
 
-	var _display_examplesJsx = __webpack_require__(490);
+	var _display_examples = __webpack_require__(490);
 
-	var _display_examplesJsx2 = _interopRequireDefault(_display_examplesJsx);
+	var _display_examples2 = _interopRequireDefault(_display_examples);
 
-	var _time_examplesJsx = __webpack_require__(496);
+	var _time_examples = __webpack_require__(496);
 
-	var _time_examplesJsx2 = _interopRequireDefault(_time_examplesJsx);
+	var _time_examples2 = _interopRequireDefault(_time_examples);
 
-	var _location_examplesJsx = __webpack_require__(590);
+	var _location_examples = __webpack_require__(590);
 
-	var _location_examplesJsx2 = _interopRequireDefault(_location_examplesJsx);
+	var _location_examples2 = _interopRequireDefault(_location_examples);
+
+	var _sidebar_examples = __webpack_require__(594);
+
+	var _sidebar_examples2 = _interopRequireDefault(_sidebar_examples);
 
 	// Hash history with scroll behavior
 
@@ -98,7 +102,7 @@
 
 	var _historyLibCreateHashHistory2 = _interopRequireDefault(_historyLibCreateHashHistory);
 
-	var _scrollBehaviorLibUseStandardScroll = __webpack_require__(594);
+	var _scrollBehaviorLibUseStandardScroll = __webpack_require__(601);
 
 	var _scrollBehaviorLibUseStandardScroll2 = _interopRequireDefault(_scrollBehaviorLibUseStandardScroll);
 
@@ -106,15 +110,16 @@
 
 	(0, _reactDom.render)(_react2["default"].createElement(
 	    _reactRouter.Router,
-	    null,
+	    { history: history },
 	    _react2["default"].createElement(
 	        _reactRouter.Route,
-	        { path: "/", component: _appJsx2["default"] },
-	        _react2["default"].createElement(_reactRouter.IndexRoute, { component: _introJsx2["default"] }),
-	        _react2["default"].createElement(_reactRouter.Route, { path: "navigation", component: _navigation_examplesJsx2["default"] }),
-	        _react2["default"].createElement(_reactRouter.Route, { path: "display", component: _display_examplesJsx2["default"] }),
-	        _react2["default"].createElement(_reactRouter.Route, { path: "time", component: _time_examplesJsx2["default"] }),
-	        _react2["default"].createElement(_reactRouter.Route, { path: "location", component: _location_examplesJsx2["default"] })
+	        { path: "/", component: _app2["default"] },
+	        _react2["default"].createElement(_reactRouter.IndexRoute, { component: _intro2["default"] }),
+	        _react2["default"].createElement(_reactRouter.Route, { path: "navigation", component: _navigation_examples2["default"] }),
+	        _react2["default"].createElement(_reactRouter.Route, { path: "display", component: _display_examples2["default"] }),
+	        _react2["default"].createElement(_reactRouter.Route, { path: "time", component: _time_examples2["default"] }),
+	        _react2["default"].createElement(_reactRouter.Route, { path: "location", component: _location_examples2["default"] }),
+	        _react2["default"].createElement(_reactRouter.Route, { path: "sidebar", component: _sidebar_examples2["default"] })
 	    )
 	), document.getElementById("content"));
 
@@ -24832,6 +24837,15 @@
 	                            { to: "location" },
 	                            "Location"
 	                        )
+	                    ),
+	                    _react2["default"].createElement(
+	                        "li",
+	                        null,
+	                        _react2["default"].createElement(
+	                            _reactRouter.Link,
+	                            { to: "sidebar" },
+	                            "Sidebar"
+	                        )
 	                    )
 	                ),
 	                _react2["default"].createElement(
@@ -30923,7 +30937,8 @@
 	                    _react2["default"].createElement("p", null),
 	                    _react2["default"].createElement(_srcNavitemtabs2["default"], {
 	                        active: subSections["circuits"]["label"],
-	                        navItemTabs: subSections }),
+	                        navItemTabs: subSections,
+	                        pullRight: false }),
 	                    _react2["default"].createElement("br", null),
 	                    "Selection: ",
 	                    subSections["circuits"]["label"],
@@ -49545,7 +49560,7 @@
 	                    {
 	                        bsStyle: "tabs",
 	                        activeKey: this.props.active,
-	                        pullRight: "true" },
+	                        pullRight: true },
 	                    navElements
 	                )
 	            );
@@ -49706,6 +49721,10 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _underscore = __webpack_require__(243);
+
+	var _underscore2 = _interopRequireDefault(_underscore);
+
 	__webpack_require__(492);
 
 	/**
@@ -49721,14 +49740,13 @@
 	    getDefaultProps: function getDefaultProps() {
 	        return {
 	            name: "",
-	            content: "",
 	            rowClass: "",
 	            valueWidth: 200
 	        };
 	    },
 
 	    render: function render() {
-	        if (this.props.content) {
+	        if (!_underscore2["default"].isUndefined(this.props.content)) {
 	            return _react2["default"].createElement(
 	                "tr",
 	                { className: this.props.rowClass },
@@ -59976,6 +59994,725 @@
 /* 594 */
 /***/ function(module, exports, __webpack_require__) {
 
+	/**
+	 *  Copyright (c) 2015, The Regents of the University of California,
+	 *  through Lawrence Berkeley National Laboratory (subject to receipt
+	 *  of any required approvals from the U.S. Dept. of Energy).
+	 *  All rights reserved.
+	 *
+	 *  This source code is licensed under the BSD-style license found in the
+	 *  LICENSE file in the root directory of this source tree.
+	 */
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _srcViewrow = __webpack_require__(491);
+
+	var _srcViewrow2 = _interopRequireDefault(_srcViewrow);
+
+	var _srcDelete = __webpack_require__(595);
+
+	var _srcDelete2 = _interopRequireDefault(_srcDelete);
+
+	var _srcFilter = __webpack_require__(596);
+
+	var _srcFilter2 = _interopRequireDefault(_srcFilter);
+
+	var _srcSearch = __webpack_require__(597);
+
+	var _srcSearch2 = _interopRequireDefault(_srcSearch);
+
+	var _srcOptions = __webpack_require__(598);
+
+	var _srcOptions2 = _interopRequireDefault(_srcOptions);
+
+	var itemList = [{ name: "apple", type: 1 }, { name: "banana", type: 1 }, { name: "cat", type: 2 }, { name: "dog", type: 2 }, { name: "donkey", type: 2 }, { name: "donut", type: 1 }, { name: "elephant", type: 2 }, { name: "egg", type: 1 }, { name: "fish", type: 2 }];
+
+	var filterOptions = {
+	    0: "All",
+	    1: "Food",
+	    2: "Animal"
+	};
+
+	exports["default"] = _react2["default"].createClass({
+	    displayName: "sidebar_examples",
+
+	    getInitialState: function getInitialState() {
+	        return {
+	            deleteMessage: "",
+	            filter: "",
+	            search: "",
+	            type: 0
+	        };
+	    },
+
+	    handleDelete: function handleDelete(id) {
+	        this.setState({ deleteMessage: "Deleted " + id + "!" });
+	    },
+
+	    handleDismiss: function handleDismiss() {
+	        this.setState({ deleteMessage: "Didn't delete" });
+	    },
+
+	    render: function render() {
+	        var _this = this;
+
+	        var listStyle = {
+	            listStyleType: "none",
+	            background: "#F4F4F4",
+	            padding: 10,
+	            borderRadius: 3
+	        };
+	        return _react2["default"].createElement(
+	            "div",
+	            null,
+	            _react2["default"].createElement(
+	                "div",
+	                { className: "row" },
+	                _react2["default"].createElement(
+	                    "div",
+	                    { className: "col-md-12" },
+	                    _react2["default"].createElement(
+	                        "h3",
+	                        null,
+	                        "Sidebar components"
+	                    ),
+	                    "Our UI often has a sidebar that contains actions for the current view, along with filtering type controls if a list is being displayed."
+	                )
+	            ),
+	            _react2["default"].createElement(
+	                "div",
+	                { className: "row" },
+	                _react2["default"].createElement(
+	                    "div",
+	                    { className: "col-md-12" },
+	                    _react2["default"].createElement("hr", null),
+	                    _react2["default"].createElement(
+	                        "h4",
+	                        null,
+	                        "Delete confirmation"
+	                    ),
+	                    "A delete button which asks to confirm your actions",
+	                    _react2["default"].createElement("p", null),
+	                    _react2["default"].createElement(_srcDelete2["default"], {
+	                        id: 22,
+	                        title: "Delete Organization",
+	                        warning: "This will delete the whole organization and all associated data",
+	                        dismiss: this.handleDismiss,
+	                        action: this.handleDelete }),
+	                    _react2["default"].createElement(
+	                        "span",
+	                        null,
+	                        this.state.deleteMessage
+	                    )
+	                )
+	            ),
+	            _react2["default"].createElement(
+	                "div",
+	                { className: "row" },
+	                _react2["default"].createElement(
+	                    "div",
+	                    { className: "col-md-12" },
+	                    _react2["default"].createElement("hr", null)
+	                )
+	            ),
+	            _react2["default"].createElement(
+	                "div",
+	                { className: "row" },
+	                _react2["default"].createElement(
+	                    "div",
+	                    { className: "col-md-12" },
+	                    _react2["default"].createElement(
+	                        "h4",
+	                        null,
+	                        "Text filter"
+	                    ),
+	                    "A filter text input.",
+	                    _react2["default"].createElement("p", null),
+	                    _react2["default"].createElement(
+	                        "div",
+	                        { className: "row" },
+	                        _react2["default"].createElement(
+	                            "div",
+	                            { className: "col-md-3" },
+	                            _react2["default"].createElement(_srcFilter2["default"], { onChange: function (filter) {
+	                                    return _this.setState({ filter: filter });
+	                                } }),
+	                            _react2["default"].createElement("br", null),
+	                            "Filter: ",
+	                            this.state.filter
+	                        ),
+	                        _react2["default"].createElement(
+	                            "div",
+	                            { className: "col-md-3", style: { height: 200 } },
+	                            _react2["default"].createElement(
+	                                "ul",
+	                                { style: listStyle },
+	                                itemList.filter(function (item) {
+	                                    return item.name.startsWith(_this.state.filter);
+	                                }).map(function (item) {
+	                                    return _react2["default"].createElement(
+	                                        "li",
+	                                        { key: item.name },
+	                                        item.name
+	                                    );
+	                                })
+	                            )
+	                        )
+	                    )
+	                )
+	            ),
+	            _react2["default"].createElement(
+	                "div",
+	                { className: "row" },
+	                _react2["default"].createElement(
+	                    "div",
+	                    { className: "col-md-12" },
+	                    _react2["default"].createElement("hr", null)
+	                )
+	            ),
+	            _react2["default"].createElement(
+	                "div",
+	                { className: "row" },
+	                _react2["default"].createElement(
+	                    "div",
+	                    { className: "col-md-12" },
+	                    _react2["default"].createElement(
+	                        "h4",
+	                        null,
+	                        "Search field"
+	                    ),
+	                    "A search text input.",
+	                    _react2["default"].createElement("p", null),
+	                    _react2["default"].createElement(
+	                        "div",
+	                        { className: "row" },
+	                        _react2["default"].createElement(
+	                            "div",
+	                            { className: "col-md-3" },
+	                            _react2["default"].createElement(_srcSearch2["default"], { onSubmit: function (search) {
+	                                    return _this.setState({ search: search });
+	                                } }),
+	                            _react2["default"].createElement("br", null),
+	                            "Search: ",
+	                            this.state.search
+	                        ),
+	                        _react2["default"].createElement(
+	                            "div",
+	                            { className: "col-md-3", style: { height: 200 } },
+	                            _react2["default"].createElement(
+	                                "ul",
+	                                { style: listStyle },
+	                                itemList.filter(function (item) {
+	                                    return item.name.startsWith(_this.state.search) && _this.state.search.length > 0;
+	                                }).map(function (item) {
+	                                    return _react2["default"].createElement(
+	                                        "li",
+	                                        { key: item.name },
+	                                        item.name
+	                                    );
+	                                })
+	                            )
+	                        )
+	                    )
+	                )
+	            ),
+	            _react2["default"].createElement(
+	                "div",
+	                { className: "row" },
+	                _react2["default"].createElement(
+	                    "div",
+	                    { className: "col-md-12" },
+	                    _react2["default"].createElement("hr", null)
+	                )
+	            ),
+	            _react2["default"].createElement(
+	                "div",
+	                { className: "row" },
+	                _react2["default"].createElement(
+	                    "div",
+	                    { className: "col-md-12" },
+	                    _react2["default"].createElement(
+	                        "h4",
+	                        null,
+	                        "Options"
+	                    ),
+	                    "A list of filter options",
+	                    _react2["default"].createElement("p", null),
+	                    _react2["default"].createElement(
+	                        "div",
+	                        { className: "row" },
+	                        _react2["default"].createElement(
+	                            "div",
+	                            { className: "col-md-3" },
+	                            _react2["default"].createElement(_srcOptions2["default"], {
+	                                attr: "filter",
+	                                choice: this.state.type,
+	                                options: filterOptions,
+	                                onChange: function (attr, type) {
+	                                    return _this.setState({ type: type });
+	                                } }),
+	                            _react2["default"].createElement("br", null),
+	                            "Filter: ",
+	                            this.state.type
+	                        ),
+	                        _react2["default"].createElement(
+	                            "div",
+	                            { className: "col-md-3", style: { height: 200 } },
+	                            _react2["default"].createElement(
+	                                "ul",
+	                                { style: listStyle },
+	                                itemList.filter(function (item) {
+	                                    return item.type === _this.state.type || !_this.state.type;
+	                                }).map(function (item) {
+	                                    return _react2["default"].createElement(
+	                                        "li",
+	                                        { key: item.name },
+	                                        item.name
+	                                    );
+	                                })
+	                            )
+	                        )
+	                    )
+	                )
+	            )
+	        );
+	    }
+	});
+	module.exports = exports["default"];
+
+/***/ },
+/* 595 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 *  Copyright (c) 2015, The Regents of the University of California,
+	 *  through Lawrence Berkeley National Laboratory (subject to receipt
+	 *  of any required approvals from the U.S. Dept. of Energy).
+	 *  All rights reserved.
+	 *
+	 *  This source code is licensed under the BSD-style license found in the
+	 *  LICENSE file in the root directory of this source tree.
+	 */
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactBootstrap = __webpack_require__(245);
+
+	/**
+	 * A dialog for confirming that you want to delete something,
+	 * triggered from a trashcan icon.
+	 *
+	 * You can pass in a 'warning' which will be displayed to the user.
+	 * Something like:
+	 *      "This will delete the whole organization and all the contacts in it"
+	 *
+	 * The dialog will follow this up with the text:
+	 *      "This action can not be undone."
+	 * though this can be altered with the 'text' prop.
+	 *
+	 * For the triggering itself, you provide a function for the `action` prop.
+	 * This will be called if the user confirms the delete. You can also provide
+	 * a `dismiss` prop, which will be called if the user cancels the delete.
+	 */
+	exports["default"] = _react2["default"].createClass({
+
+	    displayName: "DeleteAction",
+
+	    getInitialState: function getInitialState() {
+	        return { showModal: false };
+	    },
+
+	    getDefaultProps: function getDefaultProps() {
+	        return {
+	            title: "Confirm delete",
+	            warning: "Are you sure you want to delete this?",
+	            text: "This action can not be undone.",
+	            animate: false
+	        };
+	    },
+
+	    open: function open() {
+	        this.setState({ showModal: true });
+	    },
+
+	    close: function close() {
+	        this.setState({ showModal: false });
+	        if (this.props.dismiss) {
+	            this.props.dismiss();
+	        }
+	    },
+
+	    action: function action() {
+	        this.setState({ showModal: false });
+	        if (this.props.action) {
+	            this.props.action(this.props.id);
+	        }
+	    },
+
+	    render: function render() {
+	        var style = {
+	            color: "#B20C0C",
+	            cursor: "pointer",
+	            fontSize: 22,
+	            padding: 5,
+	            paddingBottom: 10
+	        };
+
+	        return _react2["default"].createElement(
+	            "div",
+	            null,
+	            _react2["default"].createElement("i", { className: "glyphicon glyphicon-trash", style: style, onClick: this.open }),
+	            _react2["default"].createElement(
+	                "span",
+	                null,
+	                this.state.msg
+	            ),
+	            _react2["default"].createElement(
+	                _reactBootstrap.Modal,
+	                { show: this.state.showModal, onHide: this.close, animation: false, container: this },
+	                _react2["default"].createElement(
+	                    _reactBootstrap.Modal.Header,
+	                    { closeButton: true },
+	                    _react2["default"].createElement(
+	                        _reactBootstrap.Modal.Title,
+	                        null,
+	                        this.props.title
+	                    )
+	                ),
+	                _react2["default"].createElement(
+	                    _reactBootstrap.Modal.Body,
+	                    null,
+	                    _react2["default"].createElement(
+	                        "h4",
+	                        null,
+	                        this.props.warning
+	                    ),
+	                    _react2["default"].createElement(
+	                        "p",
+	                        null,
+	                        this.props.text
+	                    )
+	                ),
+	                _react2["default"].createElement(
+	                    _reactBootstrap.Modal.Footer,
+	                    null,
+	                    _react2["default"].createElement(
+	                        _reactBootstrap.Button,
+	                        { onClick: this.close },
+	                        "Close"
+	                    ),
+	                    _react2["default"].createElement(
+	                        _reactBootstrap.Button,
+	                        { onClick: this.action, bsStyle: "danger" },
+	                        "Delete"
+	                    )
+	                )
+	            )
+	        );
+	    }
+	});
+	module.exports = exports["default"];
+
+/***/ },
+/* 596 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 *  Copyright (c) 2015, The Regents of the University of California,
+	 *  through Lawrence Berkeley National Laboratory (subject to receipt
+	 *  of any required approvals from the U.S. Dept. of Energy).
+	 *  All rights reserved.
+	 *
+	 *  This source code is licensed under the BSD-style license found in the
+	 *  LICENSE file in the root directory of this source tree.
+	 */
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	/**
+	 * Filter text extry box.
+	 */
+	exports["default"] = _react2["default"].createClass({
+
+	    displayName: "TextFilter",
+
+	    getDefaultProps: function getDefaultProps() {
+	        return { width: "100%" };
+	    },
+
+	    getInitialState: function getInitialState() {
+	        return { value: this.props.initialValue };
+	    },
+
+	    onChange: function onChange(e) {
+	        this.setState({ value: e.target.value });
+	        if (this.props.onChange) {
+	            this.props.onChange(e.target.value);
+	        }
+	    },
+
+	    render: function render() {
+	        var style = {
+	            height: 27,
+	            marginTop: 1,
+	            width: this.props.width
+	        };
+
+	        return _react2["default"].createElement(
+	            "div",
+	            { className: "input-group", style: style },
+	            _react2["default"].createElement("input", { className: "form-control",
+	                type: "text",
+	                ref: "filter",
+	                placeholder: "Filter",
+	                defaultValue: this.state.value,
+	                onChange: this.onChange }),
+	            _react2["default"].createElement(
+	                "span",
+	                { className: "input-group-addon" },
+	                _react2["default"].createElement("span", { className: "glyphicon glyphicon-filter" })
+	            )
+	        );
+	    }
+	});
+	module.exports = exports["default"];
+
+/***/ },
+/* 597 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 *  Copyright (c) 2015, The Regents of the University of California,
+	 *  through Lawrence Berkeley National Laboratory (subject to receipt
+	 *  of any required approvals from the U.S. Dept. of Energy).
+	 *  All rights reserved.
+	 *
+	 *  This source code is licensed under the BSD-style license found in the
+	 *  LICENSE file in the root directory of this source tree.
+	 */
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	/**
+	 * Search text extry box.
+	 */
+	exports["default"] = _react2["default"].createClass({
+
+	    displayName: "SearchBox",
+
+	    getInitialState: function getInitialState() {
+	        return { value: this.props.initialValue };
+	    },
+
+	    onSubmit: function onSubmit() {
+	        var val = this.refs.search.value;
+
+	        this.setState({ value: val });
+
+	        // Callback
+	        if (this.props.onSubmit) {
+	            this.props.onSubmit(val);
+	        }
+	    },
+
+	    render: function render() {
+	        return _react2["default"].createElement(
+	            "form",
+	            { onSubmit: this.onSubmit },
+	            _react2["default"].createElement(
+	                "div",
+	                { className: "input-group" },
+	                _react2["default"].createElement("input", { className: "form-control",
+	                    type: "search",
+	                    ref: "search",
+	                    placeholder: "Search",
+	                    defaultValue: this.state.value }),
+	                _react2["default"].createElement(
+	                    "span",
+	                    { className: "input-group-addon", onClick: this.onSubmit },
+	                    _react2["default"].createElement("span", { className: "glyphicon glyphicon-search" })
+	                )
+	            )
+	        );
+	    }
+	});
+	module.exports = exports["default"];
+
+/***/ },
+/* 598 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 *  Copyright (c) 2015, The Regents of the University of California,
+	 *  through Lawrence Berkeley National Laboratory (subject to receipt
+	 *  of any required approvals from the U.S. Dept. of Energy).
+	 *  All rights reserved.
+	 *
+	 *  This source code is licensed under the BSD-style license found in the
+	 *  LICENSE file in the root directory of this source tree.
+	 */
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _underscore = __webpack_require__(243);
+
+	var _underscore2 = _interopRequireDefault(_underscore);
+
+	__webpack_require__(599);
+
+	exports["default"] = _react2["default"].createClass({
+
+	    displayName: "OptionList",
+
+	    getInitialState: function getInitialState() {
+	        return { value: this.props.choice };
+	    },
+
+	    handleChange: function handleChange(e) {
+	        var value = e.target.value;
+
+	        // State changes
+	        this.setState({ value: value });
+
+	        // Callbacks
+	        if (this.props.onChange) {
+	            this.props.onChange(this.props.attr, e.target.value);
+	        }
+	    },
+
+	    render: function render() {
+	        var _this = this;
+
+	        var className = "list-group";
+
+	        if (!this.props.options) {
+	            throw new Error("No initial choice list supplied for attr '" + this.props.attr + "'");
+	        }
+
+	        var listElements = _underscore2["default"].map(this.props.options, function (option, i) {
+	            if (_this.props.choice === Number(i)) {
+	                return _react2["default"].createElement(
+	                    "li",
+	                    { className: "list-group-item active",
+	                        key: i,
+	                        value: i,
+	                        onClick: _this.handleChange },
+	                    option
+	                );
+	            } else {
+	                return _react2["default"].createElement(
+	                    "li",
+	                    { className: "list-group-item",
+	                        key: i,
+	                        value: i,
+	                        onClick: _this.handleChange },
+	                    option
+	                );
+	            }
+	        });
+
+	        var style = this.props.width ? { width: this.props.width } : {};
+
+	        // Key based on the choice list
+	        var choiceList = _underscore2["default"].map(this.props.options, function (choice) {
+	            return choice;
+	        });
+	        var list = choiceList.join("-");
+
+	        return _react2["default"].createElement(
+	            "ul",
+	            { className: className, style: style, key: list },
+	            listElements
+	        );
+	    }
+	});
+	module.exports = exports["default"];
+
+/***/ },
+/* 599 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(600);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(241)(content, {});
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		module.hot.accept("!!/Users/pmurphy/Code/esnet-react-base/node_modules/css-loader/index.js!/Users/pmurphy/Code/esnet-react-base/src/options.css", function() {
+			var newContent = require("!!/Users/pmurphy/Code/esnet-react-base/node_modules/css-loader/index.js!/Users/pmurphy/Code/esnet-react-base/src/options.css");
+			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+			update(newContent);
+		});
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 600 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(240)();
+	exports.push([module.id, "/**\n *  Copyright (c) 2015, The Regents of the University of California,\n *  through Lawrence Berkeley National Laboratory (subject to receipt\n *  of any required approvals from the U.S. Dept. of Energy).\n *  All rights reserved.\n *\n *  This source code is licensed under the BSD-style license found in the\n *  LICENSE file in the root directory of this source tree.\n */\n\n/* For option lists, make the active text white */\nli.list-group-item.active {\n    color: white;\n}", ""]);
+
+/***/ },
+/* 601 */
+/***/ function(module, exports, __webpack_require__) {
+
 	'use strict';
 
 	exports.__esModule = true;
@@ -59996,33 +60733,33 @@
 	  return obj && obj.__esModule ? obj : { 'default': obj };
 	}
 
-	var _domHelpersEventsOff = __webpack_require__(595);
+	var _domHelpersEventsOff = __webpack_require__(602);
 
 	var _domHelpersEventsOff2 = _interopRequireDefault(_domHelpersEventsOff);
 
-	var _domHelpersEventsOn = __webpack_require__(597);
+	var _domHelpersEventsOn = __webpack_require__(604);
 
 	var _domHelpersEventsOn2 = _interopRequireDefault(_domHelpersEventsOn);
 
-	var _domHelpersQueryScrollLeft = __webpack_require__(598);
+	var _domHelpersQueryScrollLeft = __webpack_require__(605);
 
 	var _domHelpersQueryScrollLeft2 = _interopRequireDefault(_domHelpersQueryScrollLeft);
 
-	var _domHelpersQueryScrollTop = __webpack_require__(600);
+	var _domHelpersQueryScrollTop = __webpack_require__(607);
 
 	var _domHelpersQueryScrollTop2 = _interopRequireDefault(_domHelpersQueryScrollTop);
 
-	var _domHelpersUtilRequestAnimationFrame = __webpack_require__(601);
+	var _domHelpersUtilRequestAnimationFrame = __webpack_require__(608);
 
 	var _domHelpersUtilRequestAnimationFrame2 = _interopRequireDefault(_domHelpersUtilRequestAnimationFrame);
 
 	var _historyLibDOMStateStorage = __webpack_require__(168);
 
-	var _utilsCreateUseScroll = __webpack_require__(602);
+	var _utilsCreateUseScroll = __webpack_require__(609);
 
 	var _utilsCreateUseScroll2 = _interopRequireDefault(_utilsCreateUseScroll);
 
-	var _utilsSetScrollRestoration = __webpack_require__(603);
+	var _utilsSetScrollRestoration = __webpack_require__(610);
 
 	var _utilsSetScrollRestoration2 = _interopRequireDefault(_utilsSetScrollRestoration);
 
@@ -60120,11 +60857,11 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 595 */
+/* 602 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
-	var canUseDOM = __webpack_require__(596);
+	var canUseDOM = __webpack_require__(603);
 	var off = function off() {};
 
 	if (canUseDOM) {
@@ -60142,18 +60879,18 @@
 	module.exports = off;
 
 /***/ },
-/* 596 */
+/* 603 */
 /***/ function(module, exports) {
 
 	'use strict';
 	module.exports = !!(typeof window !== 'undefined' && window.document && window.document.createElement);
 
 /***/ },
-/* 597 */
+/* 604 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
-	var canUseDOM = __webpack_require__(596);
+	var canUseDOM = __webpack_require__(603);
 	var on = function on() {};
 
 	if (canUseDOM) {
@@ -60170,11 +60907,11 @@
 	module.exports = on;
 
 /***/ },
-/* 598 */
+/* 605 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
-	var getWindow = __webpack_require__(599);
+	var getWindow = __webpack_require__(606);
 
 	module.exports = function scrollTop(node, val) {
 	  var win = getWindow(node);
@@ -60185,7 +60922,7 @@
 	};
 
 /***/ },
-/* 599 */
+/* 606 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -60195,11 +60932,11 @@
 	};
 
 /***/ },
-/* 600 */
+/* 607 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
-	var getWindow = __webpack_require__(599);
+	var getWindow = __webpack_require__(606);
 
 	module.exports = function scrollTop(node, val) {
 	  var win = getWindow(node);
@@ -60210,12 +60947,12 @@
 	};
 
 /***/ },
-/* 601 */
+/* 608 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var canUseDOM = __webpack_require__(596);
+	var canUseDOM = __webpack_require__(603);
 
 	var vendors = ['', 'webkit', 'moz', 'o', 'ms'],
 	    cancel = 'clearTimeout',
@@ -60261,7 +60998,7 @@
 	module.exports = compatRaf;
 
 /***/ },
-/* 602 */
+/* 609 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -60357,7 +61094,7 @@
 	module.exports = exports["default"];
 
 /***/ },
-/* 603 */
+/* 610 */
 /***/ function(module, exports) {
 
 	'use strict';
