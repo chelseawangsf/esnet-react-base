@@ -33,6 +33,7 @@ export default React.createClass({
                       <li><Link to="display">Display</Link></li>
                       <li><Link to="time">Time</Link></li>
                       <li><Link to="location">Location</Link></li>
+                      <li><Link to="sidebar">Sidebar</Link></li>
                     </ul>
 
                     <div className="sidebar-heading">Links</div>

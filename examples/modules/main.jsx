@@ -14,12 +14,13 @@ import React from "react";
 import { render } from "react-dom";
 import { Router, Route, IndexRoute } from "react-router";
 
-import App from "./app.jsx";
-import Intro from "./intro.jsx";
-import Navigation from "./navigation_examples.jsx";
-import Display from "./display_examples.jsx";
-import Time from "./time_examples.jsx";
-import Location from "./location_examples.jsx";
+import App from "./app";
+import Intro from "./intro";
+import Navigation from "./navigation_examples";
+import Display from "./display_examples";
+import Time from "./time_examples";
+import Location from "./location_examples";
+import Sidebar from "./sidebar_examples";
 
 // Hash history with scroll behavior
 import createHistory from "history/lib/createHashHistory";
@@ -27,13 +28,14 @@ import useScroll from "scroll-behavior/lib/useStandardScroll";
 const history = useScroll(createHistory)();
 
 render((
-    <Router>
+    <Router history={history}>
         <Route path="/" component={App}>
             <IndexRoute component={Intro}/>
             <Route path="navigation" component={Navigation} />
             <Route path="display" component={Display} />
             <Route path="time" component={Time} />
             <Route path="location" component={Location} />
+            <Route path="sidebar" component={Sidebar} />
         </Route>
     </Router>
 ), document.getElementById("content"));
