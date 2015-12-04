@@ -11,11 +11,37 @@
 import React from "react";
 import ViewRow from "../../src/viewrow";
 import DeleteAction from "../../src/delete";
+import Filter from "../../src/filter";
+import Search from "../../src/search";
+import Options from "../../src/options";
+
+const itemList = [
+    {name: "apple", type: 1},
+    {name: "banana", type: 1},
+    {name: "cat", type: 2},
+    {name: "dog", type: 2},
+    {name: "donkey", type: 2},
+    {name: "donut", type: 1},
+    {name: "elephant", type: 2},
+    {name: "egg", type: 1},
+    {name: "fish", type: 2}
+];
+
+const filterOptions = {
+    0: "All",
+    1: "Food",
+    2: "Animal"
+};
 
 export default React.createClass({
 
     getInitialState() {
-        return {deleteMessage: ""};
+        return {
+            deleteMessage: "",
+            filter: "",
+            search: "",
+            type: 0
+        };
     },
 
     handleDelete(id) {
@@ -27,6 +53,12 @@ export default React.createClass({
     },
 
     render() {
+        const listStyle = {
+            listStyleType: "none",
+            background: "#F4F4F4",
+            padding: 10,
+            borderRadius: 3
+        };
         return (
             <div>
                 <div className="row">
@@ -51,6 +83,98 @@ export default React.createClass({
                             dismiss={this.handleDismiss}
                             action={this.handleDelete} />
                         <span>{this.state.deleteMessage}</span>
+                    </div>
+                </div>
+
+                <div className="row">
+                    <div className="col-md-12">
+                        <hr />
+                    </div>
+                </div>
+
+                <div className="row">
+                    <div className="col-md-12">
+                        <h4>Text filter</h4>
+                        A filter text input.
+                        <p />
+                        <div className="row">
+                            <div className="col-md-3">
+                                <Filter onChange={filter => this.setState({filter})}/>
+                                <br />
+                                Filter: {this.state.filter}
+                            </div>
+                            <div className="col-md-3" style={{height: 200}}>
+                                <ul style={listStyle}>
+                                    {itemList
+                                        .filter(item => item.name.startsWith(this.state.filter))
+                                        .map(item => <li key={item.name}>{item.name}</li>)
+                                    }
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="row">
+                    <div className="col-md-12">
+                        <hr />
+                    </div>
+                </div>
+
+                <div className="row">
+                    <div className="col-md-12">
+                        <h4>Search field</h4>
+                        A search text input.
+                        <p />
+                        <div className="row">
+                            <div className="col-md-3">
+                                <Search onSubmit={search => this.setState({search})}/>
+                                <br />
+                                Search: {this.state.search}
+                            </div>
+                            <div className="col-md-3" style={{height: 200}}>
+                                <ul style={listStyle}>
+                                    {itemList
+                                        .filter(item => item.name.startsWith(this.state.search) &&
+                                                        this.state.search.length > 0)
+                                        .map(item => <li key={item.name}>{item.name}</li>)
+                                    }
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="row">
+                    <div className="col-md-12">
+                        <hr />
+                    </div>
+                </div>
+
+                <div className="row">
+                    <div className="col-md-12">
+                        <h4>Options</h4>
+                        A list of filter options
+                        <p />
+                        <div className="row">
+                            <div className="col-md-3">
+                                <Options
+                                    attr="filter"
+                                    choice={this.state.type}
+                                    options={filterOptions}
+                                    onChange={(attr, type) => this.setState({type})} />
+                                <br />
+                                Filter: {this.state.type}
+                            </div>
+                            <div className="col-md-3" style={{height: 200}}>
+                                <ul style={listStyle}>
+                                    {itemList
+                                        .filter(item => item.type === this.state.type || !this.state.type)
+                                        .map(item => <li key={item.name}>{item.name}</li>)
+                                    }
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

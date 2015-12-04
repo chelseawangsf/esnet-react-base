@@ -20,5 +20,6 @@ module.exports = {
     AttributedEventSummary: require("./lib/attributedeventsummary.js"),
     NavItems: require("./lib/navitems.js"),
     NavItemTabs: require("./lib/navitemtabs.js"),
-    DeleteAction: require("./lib/delete.js")
+    DeleteAction: require("./lib/delete.js"),
+    Filter: require("./lib/filter.js")
 };
