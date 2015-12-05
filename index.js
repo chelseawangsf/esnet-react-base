@@ -21,5 +21,7 @@ module.exports = {
     NavItems: require("./lib/navitems.js"),
     NavItemTabs: require("./lib/navitemtabs.js"),
     DeleteAction: require("./lib/delete.js"),
-    Filter: require("./lib/filter.js")
+    TextFilter: require("./lib/filter.js"),
+    SearchBox: require("./lib/search.js"),
+    OptionList: require("./lib/options.js")
 };
