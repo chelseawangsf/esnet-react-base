@@ -22,17 +22,40 @@ import "./sectionlink.css";
  *     * icon - the bootstrap icon name (e.g. 'briefcase')
  */
 export default React.createClass({
+
+    getDefaultProps() {
+        const containerStyle = {
+            borderStyle: "solid",
+            borderWidth: 1,
+            borderRadius: 4,
+            width: 220,
+            height: 40,
+            borderColor: "#E2E2E2",
+            background: "#F8F8F8",
+            fontSize: 26,
+            margin: 10
+        };
+        const titleStyle = {
+            marginLeft: 16
+        };
+        return {
+            containerStyle,
+            titleStyle
+        };
+
+    },
+
     render() {
         const url = `#${this.props.link}`;
         const className =
             `glyphicon glyphicon-${this.props.icon} sectionlink-icon`;
         return (
-            <div className="sectionlink-container">
+            <div style={this.props.containerStyle}>
                 <a href={url}>
                     <span>
                         <i className={className}></i>
                     </span>
-                    <span className="sectionlink-title">
+                    <span style={this.props.titleStyle}>
                         {this.props.title}
                     </span>
                 </a>
