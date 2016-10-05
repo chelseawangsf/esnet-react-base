@@ -11,7 +11,7 @@ module.exports = {
     },
     module: {
         loaders: [
-            {test: /\.(js|jsx)$/, loader: "babel?stage=0"},
+            {test: /\.(js|jsx)$/, loader: "babel"},
             { test: /\.css$/, loader: "style-loader!css-loader" },
             { test: /\.(png|jpg|gif)$/, loader: "url-loader?limit=20000"},
             { test: /\.json$/, loader: "json-loader" },

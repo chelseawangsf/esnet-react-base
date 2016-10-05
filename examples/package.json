@@ -1,0 +1,22 @@
+{
+  "name": "examples",
+  "version": "0.1.0",
+  "private": true,
+  "homepage": "http://software.es.net/esnet-react-base",
+  "devDependencies": {
+    "react-scripts": "0.6.1"
+  },
+  "dependencies": {
+    "raw-loader": "^0.5.1",
+    "react": "^15.3.2",
+    "react-dom": "^15.3.2",
+    "react-markdown": "^1.0.5",
+    "react-router": "^2.8.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build && rm -rf ../docs && mv build ../docs",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
