@@ -20,7 +20,7 @@ exports.default = _react2.default.createClass({
     getInitialState: function getInitialState() {
         return { value: this.props.initialValue };
     },
-    onSubmit: function onSubmit() {
+    onSubmit: function onSubmit(e) {
         var val = this.refs.search.value;
 
         this.setState({ value: val });
@@ -29,6 +29,8 @@ exports.default = _react2.default.createClass({
         if (this.props.onSubmit) {
             this.props.onSubmit(val);
         }
+
+        e.preventDefault();
     },
     render: function render() {
         return _react2.default.createElement(
