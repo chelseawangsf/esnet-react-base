@@ -1,9 +1,7 @@
 src/
 examples/
-screenshots/
 docs/
 bin/
-build/global
 index.html
 .eslintrc
 .gitignore
